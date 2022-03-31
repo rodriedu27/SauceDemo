@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class Base {
 	
 	private WebDriver driver;
@@ -12,10 +14,12 @@ public class Base {
 	public Base(WebDriver driver) {
 		this.driver = driver;
 		
+		
 	}
 	
 	public WebDriver chromeDriverConnection() {
 		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver/chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		return driver;
 	}
